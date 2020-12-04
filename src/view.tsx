@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 
 interface Props {
   markdown: string;
-  onSave: (newMarkdown: string) => Promise<void>;
+  onSave: (newMarkdown: string) => Promise<Response>;
 }
 
 export const View: React.FC<Props> = (props) => {
