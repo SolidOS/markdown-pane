@@ -9,7 +9,7 @@
  * More info about the issue: https://github.com/testing-library/react-testing-library/issues/281#issuecomment-480349256
  * The PR that will fix it: https://github.com/facebook/react/pull/14853
  */
-export function workaroundActError () {
+export function workaroundActError (): void {
   const originalError = console.error
   beforeAll(() => {
     console.error = (...args) => {

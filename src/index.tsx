@@ -22,7 +22,7 @@ export const Pane: PaneDefinition = {
         ...options,
         newInstance,
       }))
-      .catch((err: any) => {
+      .catch((err) => {
         console.error("Error creating new instance of markdown file", err);
         return {
           ...options,
