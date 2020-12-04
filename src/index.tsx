@@ -7,8 +7,8 @@ import { saveMarkdown } from "./service";
 import { Container } from "./container";
 
 export const Pane: PaneDefinition = {
-  icon: `${icons.iconBase}noun_79217.svg`,
-  name: "MarkdownPane",
+  icon: `${icons.iconBase}markdown.svg`,
+  name: "markdown file",
   label: (subject) =>
     subject.uri.endsWith(".md") ? "Handle markdown file" : null,
   mintNew: function (context, options) {
@@ -20,7 +20,6 @@ export const Pane: PaneDefinition = {
     )
       .then(() => ({
         ...options,
-        noun: "markdown file",
         newInstance,
       }))
       .catch((err) => {
