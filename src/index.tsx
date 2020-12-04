@@ -20,6 +20,7 @@ export const Pane: PaneDefinition = {
     )
       .then(() => ({
         ...options,
+        noun: "markdown file",
         newInstance,
       }))
       .catch((err) => {
