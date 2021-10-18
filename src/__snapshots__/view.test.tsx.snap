@@ -3,15 +3,19 @@
 exports[`Edit mode should properly render the edit form 1`] = `
 <div>
   <form>
-    <textarea>
+    <textarea
+      rows="30"
+      style="width: 100%;"
+    >
       Arbitrary markdown
     </textarea>
-    <button
-      type="submit"
-    >
-      RENDER
-    </button>
-    ,
+    <div>
+      <button
+        type="submit"
+      >
+        SAVE
+      </button>
+    </div>
   </form>
 </div>
 `;

@@ -32,12 +32,16 @@ export const View: React.FC<Props> = (props) => {
         }}
       >
         <textarea
+          rows={30}
+          style={{ width: "100%" }}
           onChange={(e) => {
             setRawText(e.target.value);
           }}
           defaultValue={rawText}
         />
-        <button type="submit">RENDER</button>,
+        <div>
+          <button type="submit">SAVE</button>
+        </div>
       </form>
     );
   }
