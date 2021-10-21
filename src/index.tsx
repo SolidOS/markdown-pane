@@ -20,7 +20,7 @@ export const Pane: PaneDefinition = {
   ): string | null {
     const t = context.session.store.findTypeURIs(subject);
     if (t["http://www.w3.org/ns/iana/media-types/text/markdown#Resource"]) {
-      return "Handle markdown file";
+      return "Markdown";
     }
     return null;
   },
