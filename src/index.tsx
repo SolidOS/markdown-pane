@@ -1,6 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { NewPaneOptions, PaneDefinition } from "pane-registry";
+import {
+  DataBrowserContext,
+  NewPaneOptions,
+  PaneDefinition,
+} from "pane-registry";
 import { NamedNode, sym } from "rdflib";
 import { icons, store } from "solid-ui";
 import { saveMarkdown } from "./service";
@@ -9,8 +13,17 @@ import { Container } from "./container";
 export const Pane: PaneDefinition = {
   icon: `${icons.iconBase}markdown.svg`,
   name: "markdown file",
-  label: (subject) =>
-    subject.uri.endsWith(".md") ? "Handle markdown file" : null,
+
+  label: function (
+    subject: NamedNode,
+    context: DataBrowserContext
+  ): string | null {
+    const t = context.session.store.findTypeURIs(subject);
+    if (t["http://www.w3.org/ns/iana/media-types/text/markdown#Resource"]) {
+      return "Markdown";
+    }
+    return null;
+  },
   mintNew: function (context, options) {
     const newInstance = createFileName(options);
     return saveMarkdown(
