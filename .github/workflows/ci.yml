@@ -50,8 +50,8 @@ jobs:
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
-      - name: Update npm to latest (required for OIDC)
-        run: npm install -g npm@latest
+      - name: Update npm to compatible version (required for OIDC)
+        run: npm install -g npm@8
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Append commit hash to package version
         run: 'sed -i -E "s/(\"version\": *\"[^\"]+)/\1-${GITHUB_SHA_SHORT}/" package.json'
@@ -75,8 +75,8 @@ jobs:
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
-      - name: Update npm to latest (required for OIDC)
-        run: npm install -g npm@latest
+      - name: Update npm to compatible version (required for OIDC)
+        run: npm install -g npm@8
       - name: Disable pre- and post-publish actions
         run: 'sed -i -E "s/\"((pre|post)publish)/\"ignore:\1/" package.json'
       - name: Publish to npm
