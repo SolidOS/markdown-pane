@@ -17,9 +17,9 @@ jobs:
           - 14.x
           - 16.x
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
@@ -28,7 +28,7 @@ jobs:
       - run: npm run build
       - name: Save build
         if: matrix.node-version == '14.x'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: build
           path: |
@@ -43,10 +43,10 @@ jobs:
       id-token: write  # Required for OIDC
       contents: read
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: build
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
@@ -68,10 +68,10 @@ jobs:
       id-token: write  # Required for OIDC
       contents: read
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: build
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
