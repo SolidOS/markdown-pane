@@ -5,7 +5,7 @@ import {
   NewPaneOptions,
   PaneDefinition,
 } from "pane-registry";
-import { NamedNode, sym } from "rdflib";
+import { IndexedFormula, NamedNode, sym } from "rdflib";
 import { icons, store } from "solid-ui";
 import { saveMarkdown } from "./service";
 import { Container } from "./container";
@@ -18,7 +18,7 @@ export const Pane: PaneDefinition = {
     subject: NamedNode,
     context: DataBrowserContext
   ): string | null {
-    const t = context.session.store.findTypeURIs(subject);
+    const t = (context.session.store as IndexedFormula).findTypeURIs(subject);
     if (t["http://www.w3.org/ns/iana/media-types/text/markdown#Resource"]) {
       return "Markdown";
     }
